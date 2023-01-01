@@ -11,7 +11,7 @@ header {
 }
 
 .mode {
-    @apply flex items-baseline gap-1;
+    @apply flex items-baseline gap-1 hover:cursor-pointer;
 }
 
 .rotate {
