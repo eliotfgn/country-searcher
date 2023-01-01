@@ -1,35 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "./Header.css";
-import {isDark, setMode} from "../../utils/app-mode";
+import AppModeContext from "../../utils/app-mode-context";
 
 
-function Header() {
+function Header(props: {changeMode: any}) {
 
-  const [darkMode, setDarkMode] = useState<boolean>();
+  const modeCtx = useContext(AppModeContext);
 
-  const changeMode = () => {
-    if (darkMode) {
-      setMode("light");
-      setDarkMode(false);
+  const handleModeChange = () => {
+    if (modeCtx === "dark") {
+      props.changeMode("light");
     } else {
-      setMode("dark");
-      setDarkMode(true);
+      props.changeMode("dark")
     }
   }
 
-  useEffect(() => {
-    if (isDark()) {
-      setDarkMode(true);
-    }
-  }, []);
-
 
   return (
-      <header className={darkMode ? "dark" : "light"}>
+      <header className={modeCtx}>
         <h1 className="font-bold">Where in the world?</h1>
-        <div className="mode" onClick={changeMode}>
-          {darkMode
+        <div className="mode" onClick={handleModeChange}>
+          {modeCtx === "dark"
               ? <FontAwesomeIcon className="rotate" icon={["fas", "moon"]} size={"1x"}/>
               : <FontAwesomeIcon className="rotate" icon={["far", "moon"]} size={"1x"}/>
           }

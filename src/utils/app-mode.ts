@@ -1,4 +1,4 @@
-export function setMode(mode: "dark" | "light") {
+export function setAppMode(mode: "dark" | "light") {
   localStorage.setItem("mode", mode);
 }
 
