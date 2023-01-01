@@ -1,9 +1,9 @@
-.dark {
-    @apply bg-dark-blue text-white;
+header {
+    @apply shadow flex justify-between py-4 px-4;
 }
 
-header {
-    @apply shadow shadow;
+.dark {
+    @apply bg-dark-blue text-white;
 }
 
 .light {
