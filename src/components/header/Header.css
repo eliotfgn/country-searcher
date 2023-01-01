@@ -1,0 +1,23 @@
+.dark {
+    @apply bg-dark-blue text-white;
+}
+
+header {
+    @apply shadow shadow;
+}
+
+.light {
+    @apply bg-white text-very-dark-blue-text;
+}
+
+.mode {
+    @apply flex items-baseline gap-1;
+}
+
+.rotate {
+    transform: rotate(-30deg);
+}
+
+p {
+    @apply font-semi-bold align-baseline text-sm;
+}
