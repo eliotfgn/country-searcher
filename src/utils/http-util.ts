@@ -31,5 +31,5 @@ export async function getByName(name: string): Promise<ICountry[]> {
       region: country.region
     }
     return c;
-  })
+  });
 }
