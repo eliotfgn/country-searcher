@@ -9,8 +9,16 @@ const regions: Array<string> = ["Africa", "America", "Asia", "Europe", "Oceania"
 function CountriesList() {
 
   const modeCtx = useContext(AppModeContext);
+  const [countries, setCountries] = useState([]);
   const [region, setRegion] = useState("");
   const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    return () => {
+
+    };
+  }, []);
+
 
   const handleChangeCountry = (event: ChangeEvent<HTMLInputElement>) => {
     setCountry(event.target.value);
