@@ -3,7 +3,7 @@ import AppModeContext from "../../utils/app-mode-context";
 import "./CountriesList.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Country from "../country/Country";
-import {getAllCountries} from "../../utils/http-util";
+import {getAllCountries, getByName} from "../../utils/http-util";
 import {data} from "autoprefixer";
 import {ICountry} from "../../utils/ICountry";
 
@@ -21,6 +21,13 @@ function CountriesList() {
       setCountries(data);
     });
   }, []);
+
+  useEffect(() => {
+    getByName(country).then(data => {
+      setCountries(data);
+    })
+  }, [country] );
+
 
 
   const handleChangeCountry = (event: ChangeEvent<HTMLInputElement>) => {
