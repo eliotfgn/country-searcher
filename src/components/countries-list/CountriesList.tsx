@@ -2,6 +2,7 @@ import React, {ChangeEvent, useContext, useEffect, useState} from 'react';
 import AppModeContext from "../../utils/app-mode-context";
 import "./CountriesList.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Country from "../country/Country";
 
 const regions: Array<string> = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
@@ -40,6 +41,9 @@ function CountriesList() {
               return <option value={region} key={key}>{region}</option>
             })}
           </select>
+        </div>
+        <div className="my-10 mx-5 sm:mx-24 md:mx-24 md:grid md:grid-cols-4 lg:mx-5">
+          <Country name={"Germany"} population={85555555555} region={"Europe"} capital={"Berlin"} flag={"https://flagcdn.com/w320/de.png"}/>
         </div>
       </div>
   );

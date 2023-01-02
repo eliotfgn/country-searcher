@@ -1,0 +1,15 @@
+.card-dark {
+    @apply bg-dark-blue text-white;
+}
+
+.card-light {
+    @apply bg-light-gray text-very-dark-blue-text;
+}
+
+span {
+    @apply font-semi-bold;
+}
+
+p {
+    @apply font-base;
+}
