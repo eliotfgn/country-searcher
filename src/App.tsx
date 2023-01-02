@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from "./components/header/Header";
 import AppModeContext from "./utils/app-mode-context";
 import {isDark, setAppMode} from "./utils/app-mode";
+import CountriesList from "./components/countries-list/CountriesList";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <AppModeContext.Provider value={mode}>
         <div>
           <Header changeMode={changeMode}/>
+          <CountriesList/>
         </div>
       </AppModeContext.Provider>
   )

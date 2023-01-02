@@ -1,0 +1,39 @@
+.content-dark {
+    @apply bg-very-dark-blue text-white;
+}
+
+.content-light {
+    @apply bg-light-gray text-very-dark-blue-text;
+}
+
+.homepage {
+    @apply px-4 py-4 h-full;
+}
+
+input, select {
+    @apply outline-none;
+}
+
+.input {
+    @apply w-full;
+}
+
+.select {
+    @apply px-4 py-2 border-none rounded w-3/5 md:w-3/12 text-sm shadow-md;
+}
+
+.search-box {
+    @apply rounded pl-6 py-4 text-sm flex gap-5 shadow-md md:w-5/12;
+}
+
+.input-light, .select-light {
+    @apply text-dark-gray bg-light-gray;
+}
+
+.input-dark, .select-dark {
+    @apply text-white bg-dark-blue;
+}
+
+.search-section {
+    @apply flex flex-col md:flex-row justify-between gap-5;
+}
