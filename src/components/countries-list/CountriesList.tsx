@@ -55,13 +55,15 @@ function CountriesList() {
         </div>
         <div className="my-10 mx-5 sm:mx-24 md:mx-24 grid md:grid-cols-4 gap-10 lg:mx-5">
           {
-              countries.map((country: ICountry, key) => {
-                return <Country key={key} name={country.name}
-                                population={country.population}
-                                region={country.region}
-                                capital={country.capital}
-                                flag={country.flag}/>
-              })
+            countries.length > 0
+                ? countries.map((country: ICountry, key) => {
+                    return <Country key={key} name={country.name}
+                                    population={country.population}
+                                    region={country.region}
+                                    capital={country.capital}
+                                    flag={country.flag}/>
+                    })
+            : <p>Loading...</p>
           }
         </div>
       </div>
