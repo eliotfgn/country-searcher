@@ -1,0 +1,11 @@
+.content-dark {
+    @apply bg-very-dark-blue text-white;
+}
+
+.content-light {
+    @apply bg-light-gray text-very-dark-blue-text;
+}
+
+.content {
+    @apply min-h-screen;
+}

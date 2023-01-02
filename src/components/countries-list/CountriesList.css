@@ -1,11 +1,3 @@
-.content-dark {
-    @apply bg-very-dark-blue text-white;
-}
-
-.content-light {
-    @apply bg-light-gray text-very-dark-blue-text;
-}
-
 .homepage {
     @apply px-4 py-4 h-full;
 }
