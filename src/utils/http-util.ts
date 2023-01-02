@@ -6,11 +6,9 @@ export async function getAllCountries(): Promise<ICountry[]> {
   const response = await fetch(BASE_URL+"all");
   const countries = await response.json();
 
-  console.log(countries);
-
   return countries.map((country: any) => {
     let c: ICountry = {
-      capital: country.capital[0],
+      capital: country.capital,
       flag: country.flags.png,
       name: country.name.common,
       population: country.population,

@@ -3,20 +3,23 @@ import AppModeContext from "../../utils/app-mode-context";
 import "./CountriesList.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Country from "../country/Country";
+import {getAllCountries} from "../../utils/http-util";
+import {data} from "autoprefixer";
+import {ICountry} from "../../utils/ICountry";
 
 const regions: Array<string> = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
 function CountriesList() {
 
   const modeCtx = useContext(AppModeContext);
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState<ICountry[]>([]);
   const [region, setRegion] = useState("");
   const [country, setCountry] = useState("");
 
   useEffect(() => {
-    return () => {
-
-    };
+    getAllCountries().then((data) => {
+      setCountries(data);
+    });
   }, []);
 
 
@@ -50,8 +53,16 @@ function CountriesList() {
             })}
           </select>
         </div>
-        <div className="my-10 mx-5 sm:mx-24 md:mx-24 md:grid md:grid-cols-4 lg:mx-5">
-          <Country name={"Germany"} population={85555555555} region={"Europe"} capital={"Berlin"} flag={"https://flagcdn.com/w320/de.png"}/>
+        <div className="my-10 mx-5 sm:mx-24 md:mx-24 grid md:grid-cols-4 gap-10 lg:mx-5">
+          {
+              countries.map((country: ICountry, key) => {
+                return <Country key={key} name={country.name}
+                                population={country.population}
+                                region={country.region}
+                                capital={country.capital}
+                                flag={country.flag}/>
+              })
+          }
         </div>
       </div>
   );
