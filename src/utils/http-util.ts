@@ -15,5 +15,21 @@ export async function getAllCountries(): Promise<ICountry[]> {
       region: country.region
     }
     return c;
+  });
+}
+
+export async function getByName(name: string): Promise<ICountry[]> {
+  const response = await fetch(BASE_URL+"name/"+name);
+  const data = await response.json();
+
+  return data.map((country: any) => {
+    let c: ICountry = {
+      capital: country.capital,
+      flag: country.flags.png,
+      name: country.name.common,
+      population: country.population,
+      region: country.region
+    }
+    return c;
   })
 }
