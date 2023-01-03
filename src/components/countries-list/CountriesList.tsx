@@ -29,9 +29,15 @@ function CountriesList() {
   }, [country] );
 
   useEffect(() => {
-    filterByRegion(region).then(data => {
-      setCountries(data);
-    });
+    if (region !== "") {
+      filterByRegion(region).then(data => {
+        setCountries(data);
+      });
+    } else {
+      getAllCountries().then((data) => {
+        setCountries(data);
+      });
+    }
   }, [region])
 
   const handleChangeCountry = (event: ChangeEvent<HTMLInputElement>) => {
@@ -56,10 +62,9 @@ function CountriesList() {
 
           <select className={"select-"+modeCtx+" select"}
                   name="region"
-                  value="name"
                   placeholder="Filter by region"
                   onChange={handleChangeRegion}>
-            <option value="" hidden>Filter by region</option>
+            <option value="" hidden={region === ""}>Filter by region</option>
             {regions.map((region, key) => {
               return <option value={region} key={key}>{region}</option>
             })}
