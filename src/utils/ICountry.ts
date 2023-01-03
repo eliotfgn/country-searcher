@@ -4,10 +4,10 @@ export interface ICountry {
   region: string;
   capital: string;
   flag: string;
-  nativeName: string;
-  subRegion: string;
-  topLevelDomain: string;
-  currencies: string[];
-  languages: string[];
-  borderCountries: string[];
+  nativeName?: string;
+  subRegion?: string;
+  topLevelDomain?: string;
+  currencies?: string[];
+  languages?: string[];
+  borderCountries?: string[];
 }

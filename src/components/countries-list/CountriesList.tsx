@@ -3,7 +3,7 @@ import AppModeContext from "../../utils/app-mode-context";
 import "./CountriesList.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Country from "../country/Country";
-import {getAllCountries, getByName} from "../../utils/http-util";
+import {filterByRegion, getAllCountries, getByName} from "../../utils/http-util";
 import {data} from "autoprefixer";
 import {ICountry} from "../../utils/ICountry";
 
@@ -25,10 +25,14 @@ function CountriesList() {
   useEffect(() => {
     getByName(country).then(data => {
       setCountries(data);
-    })
+    });
   }, [country] );
 
-
+  useEffect(() => {
+    filterByRegion(region).then(data => {
+      setCountries(data);
+    });
+  }, [region])
 
   const handleChangeCountry = (event: ChangeEvent<HTMLInputElement>) => {
     setCountry(event.target.value);
@@ -52,6 +56,7 @@ function CountriesList() {
 
           <select className={"select-"+modeCtx+" select"}
                   name="region"
+                  value="name"
                   placeholder="Filter by region"
                   onChange={handleChangeRegion}>
             <option value="" hidden>Filter by region</option>

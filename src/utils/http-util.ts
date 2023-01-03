@@ -33,3 +33,21 @@ export async function getByName(name: string): Promise<ICountry[]> {
     return c;
   });
 }
+
+export async function filterByRegion(region: string): Promise<ICountry[]> {
+  let url = BASE_URL+"region/"+region;
+  console.log(url);
+  const response = await fetch(url);
+  const data = await response.json();
+
+  return data.map((country: any) => {
+    let c: ICountry = {
+      capital: country.capital,
+      flag: country.flags.png,
+      name: country.name.common,
+      population: country.population,
+      region: country.region
+    }
+    return c;
+  });
+}
